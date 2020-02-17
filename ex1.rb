@@ -1,4 +1,4 @@
-#(1) Write a function which takes string input and and integer n and 
+#(1) Write a function which takes string input and an integer n and 
 # outputs a series of n strings. Each output string contains an 
 # additional copy of the input string to produce a geometric pattern. 
 # n must be a non-negative integer. 
