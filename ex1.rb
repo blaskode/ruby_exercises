@@ -1,5 +1,8 @@
-# Write a function "print_stairs(n, str)" which takes string input and an i
-# nteger n and outputs a series of n strings in a geometric pattern resembling 
+
+# (#1-5)
+# Write a function "print_stairs(n, str)" which takes string input and an 
+# integer n and outputs a series of n strings in a geometric pattern resembling 
+# a staircase. 
 # example: 
 
 # print_stairs(5, "aa")
@@ -72,11 +75,29 @@ def print_stairs4 n, str
 	n.times {|n| puts s; s += str}
 end
 
-#Finally, we have arrived at good idiomatic Ruby style!
+# Finally, we have arrived at good idiomatic Ruby style!
 
 print_stairs4(5, "aa");
 
+# (6 - 7) Wurst is the best. Create a function that takes a string and replaces 
+# every mention of any type of sausage with the German word "Wurst," 
+# unless—of course—the sausage is already a type of German "Wurst" 
+# (i.e. "Bratwurst", see below), then leave the sausage name unchanged.
 
+# (6) Convert the sausages, don't worry about punctuation.
+def convert_to_wurst str
+	#wursts = ['bratwurst', 'kochwurst', 'leberwurst', 
+		#'mettwurst', 'rostbratwurst'];
+	not_wursts = ['kielbasa', 'chorizo', 'moronga', 
+		'salami', 'sausage', 'andouille', 'naem',
+		'merguez', 'gurka', 'snorkers', 'pepperoni'];
+	str = str.split;
+	str.map! { |i| not_wursts.include?(i) ? 'Wurst' : i}
+	str.join(" ")
+end
+
+# (7) Now, rewrite it so that it takes punctuation and capitalization
+# into account.
 
 
 
