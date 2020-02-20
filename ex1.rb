@@ -100,16 +100,114 @@ end
 # into account. A sausage starting with a capital letter, or at the end
 # of a sentence (followed immediately by a period), will trip up (6)
 
-def convert_to_wurst1 str
+def wurst_is_better str
 	not_wursts = ['kielbasa', 'chorizo', 'moronga', 
 	'salami', 'sausage', 'andouille', 'naem',
 	'merguez', 'gurka', 'snorkers', 'pepperoni'];
 	not_wursts.each do |i| 
-		str.sub! i, 'Wurst'
-		str.sub! i.capitalize, 'Wurst'
+		str.gsub! i, 'Wurst'
+		str.gsub! i.capitalize, 'Wurst'
 	end
 	str 
 end
+
+# Create a function that returns true when num1 
+# is equal to num2; otherwise return false
+def is_same_num(num1, num2)
+	num1 == num2
+end
+
+# Create a function that returns the product 
+# of all odd integers in an array.
+def odd_product(arr)
+	arr.filter! { |i| (i % 2 != 0) }
+	x = arr.inject(:*)
+	return x
+end
+
+# Create a function that takes a string 
+# and returns a string in which each character is repeated once.
+
+def double_char(str)
+	arr = str.split('')
+	new_arr = []
+	arr.each{|i| new_arr.push(i); new_arr.push(i)}
+	str = new_arr.join()
+	return str;
+end
+
+def double_char1(str)
+	arr = str.split('')
+	new_arr = []
+	arr.each do |i| 
+		2.times {new_arr.push(i)}
+	end
+	str = new_arr.join()
+	return str;
+end
+
+# Write a function that returns true 
+# if a hash contains the specified key, and false
+# otherwise 
+def has_key(hash, key)
+	hash.has_key? key
+end
+
+def factorial(int)
+	if int == 0
+		1
+	else
+		int * factorial(int - 1)
+	end
+end
+
+def factorial1(int)
+	(1..int).inject(:*)
+end
+
+# Create a function that takes a string and 
+# returns the number (count) of vowels contained within it.
+def count_vowels(str)
+	vowels = ['a', 'e', 'i', 'o', 'u']
+	str = str.split('')
+	count = 0;
+	str.each do |i|
+		if vowels.include? i
+			count += 1
+		end
+	end
+	p count 
+end
+
+def count_vowels1(s)
+	p s.count('aeiou')
+end
+
+# Create a function that takes an array 
+# of names and returns an array with only the first letter capitalized.
+def cap_me(arr)
+	arr.map { |i| i.capitalize}
+end
+
+# Create a function that takes an array as an argument and returns true or false depending 
+# on whether the average of all elements in the array is a whole number or not.
+def is_avg_whole?(arr)
+	sum = arr.sum
+	avg_i = sum / arr.count 
+	avg_f = sum / arr.count.to_f
+	avg_i == avg_f
+end
+
+
+
+
+
+
+
+
+
+
+
 
 
 
