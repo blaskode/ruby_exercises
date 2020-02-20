@@ -77,7 +77,7 @@ end
 
 # Finally, we have arrived at good idiomatic Ruby style!
 
-print_stairs4(5, "aa");
+# print_stairs4(5, "aa");
 
 # (6 - 7) Wurst is the best. Create a function that takes a string and replaces 
 # every mention of any type of sausage with the German word "Wurst," 
@@ -97,8 +97,19 @@ def convert_to_wurst str
 end
 
 # (7) Now, rewrite it so that it takes punctuation and capitalization
-# into account.
+# into account. A sausage starting with a capital letter, or at the end
+# of a sentence (followed immediately by a period), will trip up (6)
 
+def convert_to_wurst1 str
+		not_wursts = ['kielbasa', 'chorizo', 'moronga', 
+		'salami', 'sausage', 'andouille', 'naem',
+		'merguez', 'gurka', 'snorkers', 'pepperoni'];
+		not_wursts.each do |i| 
+			str.sub! i, 'Wurst'
+			str.sub! i.capitalize, 'Wurst'
+		end
+		str 
+end
 
 
 
