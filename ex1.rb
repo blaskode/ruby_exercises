@@ -101,14 +101,14 @@ end
 # of a sentence (followed immediately by a period), will trip up (6)
 
 def convert_to_wurst1 str
-		not_wursts = ['kielbasa', 'chorizo', 'moronga', 
-		'salami', 'sausage', 'andouille', 'naem',
-		'merguez', 'gurka', 'snorkers', 'pepperoni'];
-		not_wursts.each do |i| 
-			str.sub! i, 'Wurst'
-			str.sub! i.capitalize, 'Wurst'
-		end
-		str 
+	not_wursts = ['kielbasa', 'chorizo', 'moronga', 
+	'salami', 'sausage', 'andouille', 'naem',
+	'merguez', 'gurka', 'snorkers', 'pepperoni'];
+	not_wursts.each do |i| 
+		str.sub! i, 'Wurst'
+		str.sub! i.capitalize, 'Wurst'
+	end
+	str 
 end
 
 
