@@ -1,5 +1,5 @@
 
-# (#)
+# (1)
 # Write a function "print_stairs(n, str)" which takes string input and an 
 # integer n and outputs a series of n strings in a geometric pattern resembling 
 # a staircase. 
@@ -250,9 +250,80 @@ def middle_earth(arr)
 	truthy
 end
 
+# (26) Create a function that takes a string as the first 
+# argument, and a (string) specification as a second argument. 
+# If the specification is "word", return a string with each 
+# word reversed while maintaining their original order. 
+# If the specification is "sentence", reverse the order of the 
+# words in the string, while keeping the words intact.
+def flip(str, spec)
+	if spec == 'word'
+		s = str.split(' ') #split str into words
+		s1 = []
+		s.each {|n| s1.push(n.reverse)}
+		s1.join ' '
+	elsif spec == 'sentence'
+		s = str.split(' ') #split str into words
+		s1 = []
+		s.each {|n| s1.unshift(n)}
+		s1.join ' '
+	end
+end
+
+# (27) Create a function that returns the minimum number of removals 
+# to make the sum of all elements in an array even.
+
+def minimum_removals(arr)
+	sum = 0;
+	arr.each {|n| sum += n}
+
+	if sum.even?
+		return 0
+	end
+
+	count = 0;
+
+	if sum.odd?
+		arr.each do |n|
+			if n.odd? 
+				count += 1 
+			end
+		end
+	end
+	if count == arr.length
+		nil
+	else
+		1
+	end
+end
 
 
+# (28) Create a function that takes in year and month as input, 
+# then return what year it would be after n-months has elapsed.
+def after_n_months(year, month)
+	if year == nil
+		"year missing"
+	elsif month == nil
+		"month missing"
+	else
+		(year + month/12).to_i
+	end
+end
 
+# (29) Create a function that takes two strings as arguments and 
+# returns the number of times the first string (the single 
+# character) is found in the second string.
+def char_count(str1, str2)
+	s = str2.split('').select {|n| n == str1}
+	s.length
+end
+
+# Per 6 coffee cups I buy, I get a 7th cup free. In total, I get 7 
+# cups. Create a function that takes n cups bought and return the 
+# total number of cups I would get.
+def total_cups(n)
+	total = (n / 6).to_i + n
+end
 
 
 
