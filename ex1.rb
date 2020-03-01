@@ -318,13 +318,119 @@ def char_count(str1, str2)
 	s.length
 end
 
-# Per 6 coffee cups I buy, I get a 7th cup free. In total, I get 7 
+# (30) Per 6 coffee cups I buy, I get a 7th cup free. In total, I get 7 
 # cups. Create a function that takes n cups bought and return the 
 # total number of cups I would get.
 def total_cups(n)
 	total = (n / 6).to_i + n
 end
 
+# (31) A number is narcissistic when the sum of its digits, 
+# with each digit raised to the power of digits quantity, 
+# is equal to the number itself.
+def is_narc n
+  x = n.to_s.split('')
+  x = x.map { |x| x.to_i }
+  exp = x.length
+  #p exp
+  x = x.map { |x| x**exp }
+  x = x.sum
+  x == n ? true : false 
+end
 
+def additive_inverse(arr)
+  arr.map { |x| x * -1 }
+end
+
+# (32) counts the number of 1's in a 2d matrix
+def count_ones(matrix)
+  count = 0;
+  matrix.each do |sub_matrix| 
+    sub_matrix.each {|x| x == 1 ? count += 1 : nil}
+  end
+  count
+end
+
+# (33) Create a function that takes a string and returns 
+# true or false, depending on whether the characters are in order or not.
+def is_in_order(str)
+  str = str.split ''
+  x = str[0].ord
+  str.shift
+  str.each do |c|
+    if x > c.ord
+      return false
+    else
+      x = c.ord 
+    end
+  end
+  true
+end
+
+# (34) Your job is to make a "Twitter link" regular expression rx. 
+# This RegEx searches a tweet to find the @handle and the #handle. 
+# Only return the @ and # handles.
+def tweet(str)
+  arr = []
+  scans = str.scan(/(@\w+)|(#\w+)/)
+  scans.each do |x|
+    x.each do |y|
+      if y
+        arr.push y
+      end
+    end
+  end
+  arr.join ' '
+end
+
+# (35)
+def chatroom_status(users)
+  output = ""
+  if users == 0
+    output = "no one online"
+  end
+  if users >= 1
+    output += " [user 1] online"
+  end
+  if users >= 2
+    output += " [user 2] online"
+  end
+  if users > 2
+    output += " and #{users - 2} online"
+  end
+  output 
+end
+
+# (36) Given two integers, a and b, return true if a can be 
+# divided evenly by b. Return false otherwise.
+# Notice how the ternary operator is used: no "if" is
+# required since the mod returns a value
+def divides_evenly(a, b)
+	a % b == 0 ? true : false
+end
+
+# (37) Create a function that takes two arguments (item, times). 
+# The first argument (item) is the item that needs repeating 
+# while the second argument is the number of times the item 
+# is to be repeated. Notices that "times" is a method of integers
+# as well as a variable name.
+def repeat(item, times)
+	return_array = []
+	times.times { return_array.push(item) }
+	return_array
+end
+
+# (40) A number is narcissistic when the sum of its digits, 
+# with each digit raised to the power of digits quantity, 
+# is equal to the number itself.
+# Given a positive integer n, implement a function that 
+# returns true if the number is narcissistic, and false if it's not.
+def is_narcissistic(n)
+  list = n.to_s.split ''
+  power = list.length
+  list.map! {|x| x.to_i}
+  sum = list.inject(0) { |sum, x| sum += x ** power}
+  sum == n ? true : false
+end
 
 
