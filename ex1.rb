@@ -420,7 +420,7 @@ def repeat(item, times)
 	return_array
 end
 
-# (40) A number is narcissistic when the sum of its digits, 
+# (38) A number is narcissistic when the sum of its digits, 
 # with each digit raised to the power of digits quantity, 
 # is equal to the number itself.
 # Given a positive integer n, implement a function that 
@@ -433,4 +433,107 @@ def is_narcissistic(n)
   sum == n ? true : false
 end
 
+# (39) In this challenge, you have to establish if a number is apocalyptic. 
+# A positive integer n greater than 0 is apocalyptic when 2 elevated to n 
+# contains one or more occurrences of 666 into it.
 
+# Given an integer n, implement a function that returns:
+
+# "Safe" if n is not apocalyptic.
+# "Single" if into 2^n there's a single occurence of 666.
+# "Double" if into 2^n there are two occurences of 666.
+# "Triple" if into 2^n there are three occurences of 666.
+def is_apocalyptic(number)
+  num_str = (2**number).to_s
+  array_of_instances = num_str.scan /666/
+  times = array_of_instances.length
+  case times
+  when 0
+    "Safe"
+  when 1
+    "Single"
+  when 2
+    "Double"
+  when 3
+    "Triple"
+  else
+    "Fucked"
+  end
+end
+
+# (40) Write a function to reverse an array.
+def reverse(arr)
+  output = []
+  arr.reverse_each {|x| output.push x}
+  output
+end
+
+# (41) 
+def complete_binary(s)
+  s = s.to_s
+  until s.length % 8 == 0
+    s = 0.to_s.concat(s.to_s);
+  end
+  s  
+end
+
+# (42)
+def find_smallest_num(arr)
+  arr.sort!
+  arr.shift
+end
+
+# (43) Remove duplicates from array
+def remove_dups(arr)
+  new_arr = []
+  arr.each do |x|
+    unless new_arr.include? x
+      new_arr.push x
+    end
+  end
+  new_arr
+end
+
+# (44)
+def has_spaces(str)
+  x = / /.match(str)
+  x == nil ? false : true
+end
+
+# (45)
+def difference(nums)
+  sorted_nums = nums.sort
+  return (sorted_nums.pop - sorted_nums.shift)
+end
+
+# (46)
+def get_case(str)
+  if /^[^A-Z]+$/.match(str)
+    return "lower"
+  elsif /^[^a-z]+$/.match(str)
+    return "upper"
+  else
+    return "mixed"
+  end
+end
+
+# (48)
+def squares_sum(n)
+  sum = 0
+  n.times { |x|  sum += x**2}
+  sum += n**2
+  return sum
+end
+
+# (49)
+def mood_today(mood = nil)
+  string = "Today, I am feeling"
+  mood.nil? ? "#{string} neutral" : "#{string} #{mood}" 
+end
+
+# (50) Implement a function that returns an array containing 
+# all the consecutive numbers in ascendant order from the given 
+# value low up to the given value high (bounds included).
+def get_sequence(low, high)
+  (low..high).to_a
+end
